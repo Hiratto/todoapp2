@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -10,7 +9,19 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      %p.header_pageTitle Boards
+      .header_logos
+        - unless current_page?(root_path)
+          = link_to :back do
+            = image_tag 'back.svg', class: 'header_back'
+        %p.header_pageTitle
+          = link_to 'Boards', root_path
       .dropdown
-        = image_tag 'Oval.png', class: 'header_avatar dropbtn'
+        - if user_signed_in?
+          .dropdown
+            = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+            .dropdown-content
+              %a{:href => "#"} プロフィール
+              = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+        - else
+          = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
     = yield
