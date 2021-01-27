@@ -34,6 +34,19 @@ body {
   width: 100%;
 }
 
-.field {
-  
+.header {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .header_logos {
+    display: flex;
+    align-items: center;
+  }
+  .header_back{
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
 }
+

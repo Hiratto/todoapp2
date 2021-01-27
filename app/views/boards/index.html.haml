@@ -1,0 +1,20 @@
+.container
+  - @boards.each do |board|
+    = link_to board_path(id: board.id) do
+      .card
+        .card_content
+          .card_top
+            %p.card_title 
+              = board.name
+            .dropdown
+              = image_tag 'actions.svg', class: 'card_dropdown dropbtn'
+              .dropdown-content
+                %a{:href => "#"} Edit
+                %a{:href => "#"} Delete
+          .card_description
+            = board.description
+          .card_detail
+            = image_tag 'Oval.png'
+  = link_to new_board_path do
+    .add_card
+      %p + Add new board
