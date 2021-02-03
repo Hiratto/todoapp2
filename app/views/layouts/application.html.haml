@@ -18,7 +18,7 @@
       .dropdown
         - if user_signed_in?
           .dropdown
-            = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+            = image_tag 'Oval.png', class: 'header_avatar dropbtn'
             .dropdown-content
               %a{:href => "#"} プロフィール
               = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
